@@ -5,13 +5,13 @@ if ($_POST['submit-uaf-font']){
 	$font_file_details 	= pathinfo($_FILES['font_file']['name']);
 	$file_extension		= strtolower($font_file_details['extension']);	
 	$upload_dir 		= wp_upload_dir();	
-	if ($file_extension == 'woff'):
-		$newFileName		= date('ymdhis').$_FILES['font_file']['name'];
-		$newFilePath		= $upload_dir['path'].'/'.$newFileName;
-		$newFileUrl			= $upload_dir['url'].'/'.$newFileName;
-		move_uploaded_file($_FILES['font_file']['tmp_name'],$newFilePath);
-	else:
-		$fontNameToStore 		= date('ymdhis').$font_file_details['filename'];
+	//if ($file_extension == 'woff'):
+		//$newFileName		= date('ymdhis').$_FILES['font_file']['name'];
+		//$newFilePath		= $upload_dir['path'].'/'.$newFileName;
+		//$newFileUrl			= $upload_dir['url'].'/'.$newFileName;
+		//move_uploaded_file($_FILES['font_file']['tmp_name'],$newFilePath);
+	//else:
+		$fontNameToStore 		= date('ymdhis').str_replace(' ','_',$font_file_details['filename']);
 		$fontNameToStoreWithUrl = $upload_dir['url'].'/'.$fontNameToStore;
 		//CONVERT TO WOFF
 		$ch = curl_init();
@@ -78,7 +78,7 @@ if ($_POST['submit-uaf-font']){
 				exit();
 			}
 		}
-	endif;
+	//endif;
 	$fontsRawData 	= get_option('uaf_font_data');
 	$fontsData		= json_decode($fontsRawData, true);
 	if (empty($fontsData)):
@@ -136,7 +136,9 @@ $fontsData		= json_decode($fontsRawData, true);
             </tr>	
             <tr>    
                 <td>Font File</td>
-                <td><input type="file" name="font_file" value="" class="required" /></td>
+                <td><input type="file" name="font_file" value="" class="required" /><br/>
+                <em>Only ttf format.</em>
+                </td>
             </tr>
             <tr>        
                 <td>&nbsp;

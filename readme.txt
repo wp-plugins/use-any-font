@@ -3,7 +3,7 @@ Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed
 Requires at least: 3.0.
 Tested up to: 3.4.2
-Stable tag: 1.0
+Stable tag: 1.1
 
 Embed any font in your website
 
@@ -32,6 +32,7 @@ Note : We don't store your fonts in our server neither any of your information e
 
 1. Upload the plugin use-any-font files to the `/wp-content/plugins/` directory
 1. Activate the use-any-font plugin through the 'Plugins' menu in WordPress.
+1. Get the API key and verify it (Needed to connect to server for font conversion).
 1. Select Use Any Font under Settings
 1. Upload your font.
 1. Assign your font to element.
@@ -53,5 +54,9 @@ No, you don't need to do it yourself. Just upload your font in tff font format, 
 
 == Changelog ==
 
+= 1.1 =
+* Fixed font not loading issue when there is space in font file name.
+* Added Instructions in Plugin Interface.
+
 = 1.0 =
-First Release
+* First Release

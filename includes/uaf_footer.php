@@ -1,3 +1,32 @@
+        <br/>
+        <table class="wp-list-table widefat fixed bookmarks">
+            	<thead>
+                <tr>
+                	<th>Instruction</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                	<td>
+                    	<ol>
+                        	<li>Get API key from <a href="http://dineshkarki.com.np/font-convertor/api/" target="_blank">here</a>. You can offer your contribution from (Free to $100) and get the API key. All API key comes with lifetime validity.<br/>
+                            <em><strong>Note:</strong> API key is needed to connect to our server for font conversion.</em> 
+                            </li>
+                            
+                            <li>Upload your font in ttf format from <strong>Upload Fonts</strong> section. The required font format will be converted automatically by the plugin and stores in your server.
+                            <em><strong>Note:</strong> We don't store any font in our server. We delete the temporary files after conversion has been done.</em> 
+                            </li>
+                            
+                            <li>Assign your font to you html elements from <strong>Assign Font</strong> section.</li>
+                            
+                            <li>You are ready now. If you still have any problem visit our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">support forum</a> or you can write to us directly using our contact form.</li>
+                            
+                        </ol>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        
         </td>
         <td width="15">&nbsp;</td>
         <td width="250" valign="top">
@@ -44,15 +73,12 @@
                 </thead>
                 <tbody>
                 <tr>
-                	<td><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FDnessCarKey%2F77553779916&amp;width=185&amp;height=258&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color=%23f9f9f9&amp;header=false&amp;appId=215419415167468" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:150px;" allowTransparency="true"></iframe>
+                	<td><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FDnessCarKey%2F77553779916&amp;width=185&amp;height=258&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color=%23f9f9f9&amp;header=false&amp;appId=215419415167468" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:258px;" allowTransparency="true"></iframe>
                     </td>
                 </tr>
                 </tbody>
             </table>
             <br/>
-            
-            
-            
             
         </td>
     </tr>

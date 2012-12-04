@@ -1,6 +1,6 @@
 <?php 
 if ($_POST['ucf_api_key_submit']){
-	$api_key_return = wp_remote_fopen('http://dineshkarki.com.np/license/validate_key.php?license_key='.$_POST['uaf_api_key']);
+	$api_key_return = wp_remote_fopen('http://dineshkarki.com.np/font-convertor/api/validate_key.php?license_key='.$_POST['uaf_api_key']);
 	$api_key_return = json_decode($api_key_return);
 	if (!empty($api_key_return)){
 		if ($api_key_return->status == 'success'){
@@ -11,6 +11,14 @@ if ($_POST['ucf_api_key_submit']){
 		$api_message 	= 'Sorry there was an error. Please try again.';
 	}	
 }
+
+if ($_POST['ucf_api_key_remove']){
+	delete_option('uaf_api_key');
+	$api_message 	= 'Your Activation key has been removed';
+}
+
+
+
 $uaf_api_key			=	get_option('uaf_api_key');
 ?>
 <?php if (!empty($api_message)):?>
@@ -36,9 +44,9 @@ $uaf_api_key			=	get_option('uaf_api_key');
                         <input name="uaf_api_key" type="text" style="width:350px; margin-left:50px;" />
                         <input type="submit" name="ucf_api_key_submit" class="button-primary" value="Verify" style="padding:2px;" />
                         <br/> <br/>                       
-                        Please keep the API key to start using this plugin. Offer your contribution (Free to $100) and get the API key from <a href="http://dineshkarki.com.np/license/" target="_blank">here</a>.<br/>
+                        Please keep the API key to start using this plugin. Offer your contribution (Free to $100) and get the API key from <a href="http://dineshkarki.com.np/font-convertor/api/" target="_blank">here</a>.<br/>
                         <?php else: ?>
-                        	<span class="active_key"><?php echo $uaf_api_key;  ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Active</span>
+                        	<span class="active_key"><?php echo $uaf_api_key;  ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Active</span>							<input type="submit" name="ucf_api_key_remove" class="button-primary" value="Remove Key" style="padding:2px; margin-left:20px;" onclick="if(!confirm('Are you sure ?')){return false;}" />
                         <?php endif;?>
                         </form>
                         <br/>                        
