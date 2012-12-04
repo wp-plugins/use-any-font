@@ -24,7 +24,7 @@ Features
 
 You need API key to connect to our server for font conversion. Our server converts your font and sends it back. 
 
-Offer your contribution (Free to $100) and get the API key from <a href="http://dineshkarki.com.np/license/" target="_blank">here</a>.
+Offer your contribution (Free to $100) and get the API key from <a href="http://dineshkarki.com.np/font-convertor/api/" target="_blank">here</a>.
 
 Note : We don't store your fonts in our server neither any of your information except the API key details. Our server deletes the temporary file after the conversion is done.
 
