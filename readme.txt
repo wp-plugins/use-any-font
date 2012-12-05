@@ -1,7 +1,7 @@
 === Use Any Font ===
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed
-Requires at least: 3.0.
+Requires at least: 3.0
 Tested up to: 3.4.2
 Stable tag: 1.1
 
