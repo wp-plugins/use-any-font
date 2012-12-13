@@ -2,7 +2,7 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed
 Requires at least: 3.0
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: 1.1
 
 Embed any font in your website
@@ -11,6 +11,8 @@ Embed any font in your website
 Use any font you wish and give your site a elegant look. No css knowledge required.
 
 Click <a href="http://dineshkarki.com.np/use-any-font/demo" target="_blank">here</a> for Use Any Font working demo.
+
+Use Any Font gives you freedom to use any font in your website. It is not like other font embed services which gives you countable number of fonts to select from neither the one that stores your font in remote server. You can use any font if you have its ttf font format without being dependent to other's server uptime.
 
 Features
 
