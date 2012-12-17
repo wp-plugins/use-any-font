@@ -4,7 +4,7 @@ Plugin Name: Use Any Font
 Plugin URI: http://dineshkarki.com.np/use-any-font
 Description: Embed any font in your website
 Author: Dinesh Karki
-Version: 1.1
+Version: 2.0
 Author URI: http://www.dineshkarki.com.np
 */
 
@@ -24,4 +24,5 @@ Author URI: http://www.dineshkarki.com.np
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 include('plugin_interface.php');
+register_activation_hook( __FILE__, 'uaf_activate' );
 ?>

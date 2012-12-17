@@ -3,7 +3,7 @@ Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.1
+Stable tag: 2.0
 
 Embed any font in your website
 
@@ -23,6 +23,7 @@ Features
 * Faster load time as your fonts are stored on your own server.
 * Quick font assign interface. You can select pre defined html tags or assign it to custom css.
 * <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">Support Forum</a> to quickly resolve your issues.
+* <a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify My Problem</a> for personal assitance.
 
 You need API key to connect to our server for font conversion. Our server converts your font and sends it back. 
 
@@ -55,6 +56,9 @@ No, you don't need to do it yourself. Just upload your font in tff font format, 
 1. Use Any Font Demo
 
 == Changelog ==
+
+= 2.0 =
+* Added server connectivity test.
 
 = 1.1 =
 * Fixed font not loading issue when there is space in font file name.

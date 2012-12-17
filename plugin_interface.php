@@ -23,6 +23,10 @@ function uaf_create_menu() {
 	add_options_page('Use Any Font', 'Use Any Font', 'administrator', __FILE__, 'uaf_settings_page');	
 }
 
+function uaf_activate(){
+	uaf_write_css(); //rewrite css when plugin is activated after update or somethingelse......
+}
+
 function uaf_settings_page() {
 	include('includes/uaf_header.php');
 	include('includes/uaf_font_upload.php');
