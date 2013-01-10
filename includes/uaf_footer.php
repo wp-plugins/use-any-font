@@ -117,6 +117,8 @@ $server_message = get_option('uaf_server_msg');
                     <ul class="uaf_list">
                     	<li><a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">View Support Forum</a></li>
                         <li><a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify My Problem</a></li>
+                        
+                        <li><a href="http://dineshkarki.com.np/contact" target="_blank">Contact Us</a></li>
                     </ul>
                     </td>
                 </tr>

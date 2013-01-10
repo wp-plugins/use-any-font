@@ -3,7 +3,7 @@ Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 2.0
+Stable tag: 2.1
 
 Embed any font in your website
 
@@ -56,6 +56,9 @@ No, you don't need to do it yourself. Just upload your font in tff font format, 
 1. Use Any Font Demo
 
 == Changelog ==
+
+= 2.1 =
+* Added file upload validation.
 
 = 2.0 =
 * Added server connectivity test.

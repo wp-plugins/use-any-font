@@ -190,11 +190,10 @@ $fontsData		= json_decode($fontsRawData, true);
 		jQuery("#open_add_font_form").validate({
 		  rules: {
 			font_name 			: {required:true, maxlength:40},
-			font_file 			: {required:true}
-			//accept:"ttf|otf|woff"
+			font_file 			: {required:true, accept:'ttf'}
 			},
 		  messages:{
-			//font_file			: {accept:'Only accepts ttf,otf,woff'}
+			font_file			: {accept:'Only TTF font format accepted'}
 		  }
 		});
 	}	
