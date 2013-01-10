@@ -1,0 +1,13 @@
+			@font-face {
+				font-family: 'free Script';
+				font-style: normal;
+				src: url(http://localhost/plugin/wp-content/uploads/2013/01/130102031430FREESCPT.eot);
+				src: local('free Script'), url(http://localhost/plugin/wp-content/uploads/2013/01/130102031430FREESCPT.eot) format('embedded-opentype'), url(http://localhost/plugin/wp-content/uploads/2013/01/130102031430FREESCPT.woff) format('woff');
+			}
+					@font-face {
+				font-family: 'free Script';
+				font-style: normal;
+				src: url(http://localhost/plugin/wp-content/uploads/2013/01/130110112355FREESCPT.eot);
+				src: local('free Script'), url(http://localhost/plugin/wp-content/uploads/2013/01/130110112355FREESCPT.eot) format('embedded-opentype'), url(http://localhost/plugin/wp-content/uploads/2013/01/130110112355FREESCPT.woff) format('woff');
+			}
+		
