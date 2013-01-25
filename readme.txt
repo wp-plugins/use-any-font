@@ -2,7 +2,7 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: 2.1
 
 Embed any font in your website
