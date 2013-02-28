@@ -1,0 +1,10 @@
+			@font-face {
+				font-family: 'free Script';
+				font-style: normal;
+				src: url(http://localhost/plugin/wp-content/uploads/2013/02/130217014521FREESCPT.eot);
+				src: local('free Script'), url(http://localhost/plugin/wp-content/uploads/2013/02/130217014521FREESCPT.eot) format('embedded-opentype'), url(http://localhost/plugin/wp-content/uploads/2013/02/130217014521FREESCPT.woff) format('woff');
+			}
+						body{
+					font-family: 'free Script' !important;
+				}
+		
