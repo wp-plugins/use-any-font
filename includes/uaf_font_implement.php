@@ -91,7 +91,8 @@ $fontsData		= json_decode($fontsRawData, true);
                     <input name="elements[]" value="h6" type="checkbox" /> Headline 6 (h6 tags)<br/>
                     <input name="elements[]" value="p" type="checkbox" /> Paragraphs (p tags)<br/>
                     <input name="elements[]" value="blockquote" type="checkbox" /> Blockquotes<br/>
-                    <input name="elements[]" value="li" type="checkbox" /> Lists (li tags)
+                    <input name="elements[]" value="li" type="checkbox" /> Lists (li tags)<br/>
+                    <input name="elements[]" value="a" type="checkbox" /> Hyperlink (a tags)
                 </td>
             </tr>
             <tr>        

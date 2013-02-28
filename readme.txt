@@ -1,9 +1,9 @@
 === Use Any Font ===
 Contributors: dnesscarkey
-Tags: use any font, any font, embed any font, font embed
+Tags: use any font, any font, embed any font, font embed, font uploader, css font embed, @font-face embed, font conversion
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 2.1
+Stable tag: 3.0
 
 Embed any font in your website
 
@@ -18,7 +18,9 @@ Features
 
 * Quick and easy to setup. No css or any rocket science knowledge needed. 
 * Support all major browsers including IE 6+, Firefox, Chrome, Safari, IOS, Andriod, Opera and more.
-* Font conversion within the plugin interface. You just need to upload ttf font, other required font types are generated automatically.
+* Font conversion within the plugin interface font uploader.
+* Supports font format including ttf, otf, eot (Upgrading more). The required font are converted automatically.
+* Embed fonts using @font-face css. SEO friendly and quick loading.
 * Multiple fonts can be used.
 * Faster load time as your fonts are stored on your own server.
 * Quick font assign interface. You can select pre defined html tags or assign it to custom css.
@@ -27,7 +29,7 @@ Features
 
 You need API key to connect to our server for font conversion. Our server converts your font and sends it back. 
 
-Offer your contribution (Free to $100) and get the API key from <a href="http://dineshkarki.com.np/font-convertor/api/" target="_blank">here</a>.
+Offer your contribution (Free to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
 
 Note : We don't store your fonts in our server neither any of your information except the API key details. Our server deletes the temporary file after the conversion is done.
 
@@ -49,13 +51,28 @@ Ya, it works with multiple fonts.
 
 = Do i need to manually convert fonts ? =
 
-No, you don't need to do it yourself. Just upload your font in tff font format, and the plugin does the rest.
+No, you don't need to do it yourself. Just upload your font(supports most of the font format), and the plugin does the rest.
+
+= I moved my server path and the font is not working now. Why ? =
+
+The plugin is still searching font from your old path. You can delete your old uploaded font and re-upload and re-assign it.
+
+= Not working for me. What can i do ? =
+
+You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">support forum</a>, or check <a href="http://dineshkarki.com.np/use-any-font/use-any-font-known-issues" target="_blank">known issues</a> or ask to <a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify Your Problem</a> 
+
 
 == Screenshots ==
 
 1. Use Any Font Demo
 
 == Changelog ==
+
+= 3.0 =
+*Major update
+* Supports more font format now.
+* Better error handling
+* Added hyperlink (a tag) in default element select.
 
 = 2.1 =
 * Added file upload validation.

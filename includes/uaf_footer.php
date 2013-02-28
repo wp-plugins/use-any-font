@@ -9,7 +9,7 @@ if ($_POST['test_server'] || empty($server_status)){
 			curl_setopt($ch_test, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch_test, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
 			curl_setopt($ch_test, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux i686; rv:6.0) Gecko/20100101 Firefox/6.0Mozilla/4.0 (compatible;)");
-			curl_setopt($ch_test, CURLOPT_URL, 'http://dineshkarki.com.np/font-convertor/server/check.php');
+			curl_setopt($ch_test, CURLOPT_URL, 'http://dnesscarkey.com/font-convertor/server/check.php');
 			curl_setopt($ch_test, CURLOPT_POST, true);
 			$post = array(
 				'test_code' => $test_code
@@ -56,7 +56,7 @@ $server_message = get_option('uaf_server_msg');
                 <tr>
                 	<td>
                     	<ol>
-                        	<li>Get API key from <a href="http://dineshkarki.com.np/font-convertor/api/" target="_blank">here</a>. You can offer your contribution from (Free to $100) and get the API key. All API key comes with lifetime validity.<br/>
+                        	<li>Get API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>. You can offer your contribution from (Free to $100) and get the API key. All API key comes with lifetime validity.<br/>
                             <em><strong>Note:</strong> API key is needed to connect to our server for font conversion.</em> 
                             </li>
                             
@@ -117,7 +117,7 @@ $server_message = get_option('uaf_server_msg');
                     <ul class="uaf_list">
                     	<li><a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">View Support Forum</a></li>
                         <li><a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify My Problem</a></li>
-                        
+                        <li><a href="http://dineshkarki.com.np/use-any-font/use-any-font-known-issues" target="_blank">Check Known Issues</a></li>
                         <li><a href="http://dineshkarki.com.np/contact" target="_blank">Contact Us</a></li>
                     </ul>
                     </td>
@@ -135,8 +135,9 @@ $server_message = get_option('uaf_server_msg');
                 <tr>
                 	<td>
                     	<ul class="uaf_list">
-                        	<li><a href="http://wordpress.org/extend/plugins/sms/" target="_blank">SMS</a></li>
-							<li><a href="http://wordpress.org/extend/plugins/any-mobile-theme-switcher/" target="_blank">Any Mobile Theme Switcher</a></li>
+                        	<li><a href="http://wordpress.org/extend/plugins/any-mobile-theme-switcher/" target="_blank">Any Mobile Theme Switcher</a></li>
+                            <li><a href="http://wordpress.org/extend/plugins/jquery-validation-for-contact-form-7/" target="_blank">Jquery Validation For Contact Form 7</a></li>
+                            <li><a href="http://wordpress.org/extend/plugins/sms/" target="_blank">SMS</a></li>
                             <li><a href="http://wordpress.org/extend/plugins/add-tags-and-category-to-page/" target="_blank">Add Tags And Category To Page</a></li>
                             <li><a href="http://wordpress.org/extend/plugins/block-specific-plugin-updates/" target="_blank">Block Specific Plugin Updates</a></li>
                             <li><a href="http://wordpress.org/extend/plugins/featured-image-in-rss-feed/" target="_blank">Featured Image In RSS Feed</a></li>
