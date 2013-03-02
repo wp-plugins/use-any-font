@@ -3,6 +3,7 @@ add_action('admin_menu', 'uaf_create_menu');
 add_action("admin_print_scripts", 'adminjslibs');
 add_action("admin_print_styles", 'adminCsslibs');
 add_action('wp_enqueue_scripts', 'uaf_client_css');
+add_action('plugins_loaded', 'uaf_update_check');
 
 function uaf_client_css() {
 	wp_register_style( 'uaf_client_css', plugins_url('use-any-font/css/uaf.css'));
@@ -25,6 +26,13 @@ function uaf_create_menu() {
 
 function uaf_activate(){
 	uaf_write_css(); //rewrite css when plugin is activated after update or somethingelse......
+}
+
+function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
+    if (get_option('uaf_current_version') != '3.0'):
+		update_option('uaf_current_version', '3.0');
+		uaf_write_css();
+	endif;
 }
 
 function uaf_settings_page() {
