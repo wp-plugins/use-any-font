@@ -29,7 +29,8 @@ function uaf_activate(){
 }
 
 function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
-    if (get_option('uaf_current_version') != '3.0'):
+    $uaf_version_check = get_option('uaf_current_version');
+	if ($uaf_version_check != '3.0'):
 		update_option('uaf_current_version', '3.0');
 		uaf_write_css();
 	endif;
