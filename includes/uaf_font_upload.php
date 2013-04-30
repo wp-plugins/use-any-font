@@ -144,7 +144,7 @@ $fontsData		= json_decode($fontsRawData, true);
             <tr>    
                 <td>Font File</td>
                 <td><input type="file" name="font_file" value="" class="required" /><br/>
-                <em>Accepted Font Format : ttf, otf, eot</em>
+                <em>Accepted Font Format : ttf, otf, eot, woff, svg</em>
                 </td>
             </tr>
             <tr>        
@@ -197,10 +197,10 @@ $fontsData		= json_decode($fontsRawData, true);
 		jQuery("#open_add_font_form").validate({
 		  rules: {
 			font_name 			: {required:true, maxlength:40},
-			font_file 			: {required:true, accept:'ttf|otf|eot'}
+			font_file 			: {required:true, accept:'ttf|otf|eot|woff|svg'}
 			},
 		  messages:{
-			font_file			: {accept:'Only ttf,otf,eot font format accepted now.'}
+			font_file			: {accept:'Only ttf,otf,eot,woff,svg font format accepted now.'}
 		  }
 		});
 	}	
