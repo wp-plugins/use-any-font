@@ -2,8 +2,8 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed, font uploader, css font embed, @font-face embed, font conversion
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 3.1
+Tested up to: 3.5.2
+Stable tag: 3.2
 
 Embed any font in your website
 
@@ -12,14 +12,14 @@ Use any font you wish and give your site a elegant look. No css knowledge requir
 
 Click <a href="http://dineshkarki.com.np/use-any-font/demo" target="_blank">here</a> for Use Any Font working demo.
 
-Use Any Font gives you freedom to use any font in your website. It is not like other font embed services which gives you countable number of fonts to select from neither the one that stores your font in remote server. You can use any font if you have its font format (tff,otf,eot,woff,svg) without being dependent to other's server uptime.
+Use Any Font gives you freedom to use any font in your website. It is not like other font embed services which gives you countable number of fonts to select from neither the one that stores your font in remote server. You can use any font if you have its font format (ttf,otf,eot,woff,svg) without being dependent to other's server uptime.
 
 Features
 
 * Quick and easy to setup. No css or any rocket science knowledge needed. 
 * Support all major browsers including IE 6+, Firefox, Chrome, Safari, IOS, Andriod, Opera and more.
 * Font conversion within the plugin interface font uploader.
-* Supports font format including ttf, otf, eot (Upgrading more). The required font are converted automatically.
+* Supports font format including ttf, otf, eot, woff, svg (Upgrading more). The required font are converted automatically.
 * Embed fonts using @font-face css. SEO friendly and quick loading.
 * Multiple fonts can be used.
 * Faster load time as your fonts are stored on your own server.
@@ -32,6 +32,8 @@ You need API key to connect to our server for font conversion. Our server conver
 Offer your contribution (Free to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
 
 Note : We don't store your fonts in our server neither any of your information except the API key details. Our server deletes the temporary file after the conversion is done.
+
+We don't respond to support tickets created here. Please visit our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">support forum</a> for your issues. 
 
 == Installation ==
 
@@ -68,7 +70,10 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 
 == Changelog ==
 
-= 3.0 =
+= 3.2 =
+* Tested with 3.5.2
+
+= 3.1 =
 * Minor update
 * Add woff and svg font format
 

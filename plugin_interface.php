@@ -30,8 +30,8 @@ function uaf_activate(){
 
 function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
     $uaf_version_check = get_option('uaf_current_version');
-	if ($uaf_version_check != '3.1'):
-		update_option('uaf_current_version', '3.1');
+	if ($uaf_version_check != '3.2'):
+		update_option('uaf_current_version', '3.2');
 		uaf_write_css();
 	endif;
 }
