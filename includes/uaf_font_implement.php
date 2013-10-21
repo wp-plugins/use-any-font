@@ -1,5 +1,5 @@
 <?php
-if ($_POST['submit-uaf-implement']){
+if (isset($_POST['submit-uaf-implement'])){
 	$fontsImplementRawData 	= get_option('uaf_font_implement');
 	$fontsImplementData		= json_decode($fontsImplementRawData, true);
 	if (empty($fontsImplementData)):
@@ -28,7 +28,7 @@ if ($_POST['submit-uaf-implement']){
 	
 }
 
-if ($_GET['delete_implement_key']):
+if (isset($_GET['delete_implement_key'])):
 	$fontsImplementRawData 	= get_option('uaf_font_implement');
 	$fontsImplementData		= json_decode($fontsImplementRawData, true);
 	$key_to_delete			= $_GET['delete_implement_key'];

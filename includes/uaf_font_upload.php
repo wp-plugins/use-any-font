@@ -1,24 +1,19 @@
 <?php
-if ($_POST['submit-uaf-font']){	
+if (isset($_POST['submit-uaf-font'])){	
 	$uaf_api_key		= get_option('uaf_api_key');
 	$font_file_name 	= $_FILES['font_file']['name'];
 	$font_file_details 	= pathinfo($_FILES['font_file']['name']);
 	$file_extension		= strtolower($font_file_details['extension']);	
-	$upload_dir 		= wp_upload_dir();	
 	$fontUploadFinalMsg		= '';
 	$fontUploadFinalStatus 	= 'updated';
 	
-		$fontNameToStore 		= date('ymdhis').str_replace(' ','_',$font_file_details['filename']);
-		$fontNameToStoreWithUrl = $upload_dir['url'].'/'.$fontNameToStore;
+		$fontNameToStore 		= sanitize_file_name(date('ymdhis').$font_file_details['filename']);
+		$fontNameToStoreWithUrl = $fontNameToStore;
 		
 		// SEND FONT CONERSION REQUEST
 		set_time_limit(0);
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_VERBOSE, 0);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
-		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux i686; rv:6.0) Gecko/20100101 Firefox/6.0Mozilla/4.0 (compatible;)");
 		curl_setopt($ch, CURLOPT_URL, 'http://dnesscarkey.com/font-convertor/convertor/convert.php');
 		curl_setopt($ch, CURLOPT_POST, true);
 		$post = array(
@@ -44,7 +39,7 @@ if ($_POST['submit-uaf-font']){
 							$fontFileContent 	= wp_remote_fopen($convertResponseArray[$neededFontFormat]['filename']);
 							if (!empty($fontFileContent)):
 								$newFileName		= $fontNameToStore.'.'.$neededFontFormat;
-								$newFilePath		= $upload_dir['path'].'/'.$newFileName;
+								$newFilePath		= $uaf_upload_dir.$newFileName;
 								$fh = fopen($newFilePath, 'w') or die("can't open file. Make sure you have write permission to your upload folder");
 								fwrite($fh, $fontFileContent);
 								fclose($fh);
@@ -98,12 +93,12 @@ if ($_POST['submit-uaf-font']){
 	
 }
 
-if ($_GET['delete_font_key']):
+if (isset($_GET['delete_font_key'])):
 	$fontsRawData 	= get_option('uaf_font_data');
 	$fontsData		= json_decode($fontsRawData, true);
 	$key_to_delete	= $_GET['delete_font_key'];
-	@unlink(realpath($fontsData[$key_to_delete]['font_path'].'.woff'));
-	@unlink(realpath($fontsData[$key_to_delete]['font_path'].'.eot'));
+	@unlink(realpath($uaf_upload_dir.$fontsData[$key_to_delete]['font_path'].'.woff'));
+	@unlink(realpath($uaf_upload_dir.$fontsData[$key_to_delete]['font_path'].'.eot'));
 	unset($fontsData[$key_to_delete]);
 	$updateFontData	= json_encode($fontsData);
 	update_option('uaf_font_data',$updateFontData);

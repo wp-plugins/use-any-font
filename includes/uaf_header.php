@@ -1,5 +1,5 @@
 <?php 
-if ($_POST['ucf_api_key_submit']){
+if (isset($_POST['ucf_api_key_submit'])){
 	$api_key_return = wp_remote_fopen('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$_POST['uaf_api_key']);
 	$api_key_return = json_decode($api_key_return);
 	if (!empty($api_key_return)){
@@ -12,7 +12,7 @@ if ($_POST['ucf_api_key_submit']){
 	}	
 }
 
-if ($_POST['ucf_api_key_remove']){
+if (isset($_POST['ucf_api_key_remove'])){
 	delete_option('uaf_api_key');
 	$api_message 	= 'Your Activation key has been removed';
 }

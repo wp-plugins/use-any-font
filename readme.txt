@@ -1,9 +1,9 @@
 === Use Any Font ===
 Contributors: dnesscarkey
-Tags: use any font, any font, embed any font, font embed, font uploader, css font embed, @font-face embed, font conversion
+Tags: use any font, any font, embed any font, font embed, font uploader, css3 font embed, @font-face embed, font conversion, webfont, ttf, opentype, custom fonts
 Requires at least: 3.0
-Tested up to: 3.5.2
-Stable tag: 3.2
+Tested up to: 3.6
+Stable tag: 4.0
 
 Embed any font in your website
 
@@ -19,10 +19,11 @@ Features
 * Quick and easy to setup. No css or any rocket science knowledge needed. 
 * Support all major browsers including IE 6+, Firefox, Chrome, Safari, IOS, Andriod, Opera and more.
 * Font conversion within the plugin interface font uploader.
+* Use uploaded font directly from Editor
 * Supports font format including ttf, otf, eot, woff, svg (Upgrading more). The required font are converted automatically.
 * Embed fonts using @font-face css. SEO friendly and quick loading.
 * Multiple fonts can be used.
-* Faster load time as your fonts are stored on your own server.
+* Faster load time as your custom fonts are stored on your own server.
 * Quick font assign interface. You can select pre defined html tags or assign it to custom css.
 * <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">Support Forum</a> to quickly resolve your issues.
 * <a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify My Problem</a> for personal assitance.
@@ -43,13 +44,14 @@ We don't respond to support tickets created here. Please visit our <a href="http
 1. Select Use Any Font under Settings
 1. Upload your font.
 1. Assign your font to element.
+1. You can also assign the font directly from wordpress page/post editor.
 1. Your fonts are working in your site now.
 
 == Frequently Asked Questions ==
 
 = Does it works with multiple fonts ? =
 
-Ya, it works with multiple fonts.
+Ya, it works with multiple fonts. For multiple font conversion request, you need to get the Premium Key.
 
 = Do i need to manually convert fonts ? =
 
@@ -67,8 +69,14 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 == Screenshots ==
 
 1. Use Any Font Demo
+1. Use Any Font Plugin Setup
+1. Assign font directly from Wordpress Editor
 
 == Changelog ==
+
+= 4. =
+* Added Network Site Support
+* Assign font directly from Wordpress Editor
 
 = 3.2 =
 * Tested with 3.5.2

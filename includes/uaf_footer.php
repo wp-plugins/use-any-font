@@ -1,14 +1,10 @@
 <?php 
 $server_status 	= get_option('uaf_server_status');
-if ($_POST['test_server'] || empty($server_status)){
+if (isset($_POST['test_server']) || empty($server_status)){
 		if  (in_array  ('curl', get_loaded_extensions())) {
 			$test_code	= date('ymdhis');
 			$ch_test 	= curl_init();
-			curl_setopt($ch_test, CURLOPT_HEADER, 0);
-			curl_setopt($ch_test, CURLOPT_VERBOSE, 0);
 			curl_setopt($ch_test, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch_test, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
-			curl_setopt($ch_test, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux i686; rv:6.0) Gecko/20100101 Firefox/6.0Mozilla/4.0 (compatible;)");
 			curl_setopt($ch_test, CURLOPT_URL, 'http://dnesscarkey.com/font-convertor/server/check.php');
 			curl_setopt($ch_test, CURLOPT_POST, true);
 			$post = array(
@@ -49,7 +45,7 @@ $server_message = get_option('uaf_server_msg');
         <table class="wp-list-table widefat fixed bookmarks">
             	<thead>
                 <tr>
-                	<th>Instruction</th>
+                	<th>Instructions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -60,11 +56,15 @@ $server_message = get_option('uaf_server_msg');
                             <em><strong>Note:</strong> API key is needed to connect to our server for font conversion.</em> 
                             </li>
                             
-                            <li>Upload your font in ttf format from <strong>Upload Fonts</strong> section. The required font format will be converted automatically by the plugin and stores in your server.
+                            <li>Upload your font in supported format from <strong>Upload Fonts</strong> section. The required font format will be converted automatically by the plugin and stores in your server.
                             <em><strong>Note:</strong> We don't store any font in our server. We delete the temporary files after conversion has been done.</em> 
                             </li>
                             
                             <li>Assign your font to you html elements from <strong>Assign Font</strong> section.</li>
+                            
+                            <li>You can also assign uploaded font directly from Post/Page Wordpress Editor.</li>
+                            
+                            <li>You are are fond of visual instructions, you can check it <a href="http://dineshkarki.com.np/use-any-font/instructions" target="_blank">here</a>.</li>
                             
                             <li>You are ready now. If you still have any problem visit our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">support forum</a> or you can write to us directly using our contact form.</li>
                             
@@ -115,7 +115,8 @@ $server_message = get_option('uaf_server_msg');
                 <tr>
                 	<td>
                     <ul class="uaf_list">
-                    	<li><a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">View Support Forum</a></li>
+                    	<li><a href="http://dineshkarki.com.np/use-any-font/instructions" target="_blank">View Setup Instructions</a></li>
+                        <li><a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">View Support Forum</a></li>
                         <li><a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify My Problem</a></li>
                         <li><a href="http://dineshkarki.com.np/use-any-font/use-any-font-known-issues" target="_blank">Check Known Issues</a></li>
                         <li><a href="http://dineshkarki.com.np/contact" target="_blank">Contact Us</a></li>
