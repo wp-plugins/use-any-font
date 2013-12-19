@@ -40,7 +40,48 @@ if (isset($_POST['test_server']) || empty($server_status)){
 }
 $server_status 	= get_option('uaf_server_status');
 $server_message = get_option('uaf_server_msg');
+
+// SETTINGS
+if (isset($_POST['submit-uaf-settings'])){
+	if (isset($_POST['uaf_disbale_editor_font_list'])){
+		$uaf_disbale_editor_font_list = 1;
+	} else {
+		$uaf_disbale_editor_font_list = '';
+	}
+	update_option('uaf_disbale_editor_font_list', $uaf_disbale_editor_font_list);
+	$settings_message = 'Settings Saved';
+}
+$uaf_disbale_editor_font_list_value = get_option('uaf_disbale_editor_font_list');
 ?>
+
+<?php if (!empty($settings_message)):?>
+	<div class="updated" id="message"><p><?php echo $settings_message ?></p></div>
+<?php endif; ?>
+
+        
+        <br/>
+        <table class="wp-list-table widefat fixed bookmarks">
+            	<thead>
+                <tr>
+                	<th>Additional Settings (Usually not required)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <form method="post" action="">
+                <tr>
+                	<td>
+                    	<input type="checkbox" name="uaf_disbale_editor_font_list" value="1" <?php echo $uaf_disbale_editor_font_list_value == 1?'checked=checked':''; ?> /> Disable Font list in wordpress editor.                        
+                    </td>
+                </tr>
+                
+                <tr>        
+                	<td><input type="submit" name="submit-uaf-settings" class="button-primary" value="Save Settings" /></td>
+            	</tr>
+                </form>
+                
+                </tbody>
+            </table>
+        
         <br/>
         <table class="wp-list-table widefat fixed bookmarks">
             	<thead>
@@ -64,7 +105,7 @@ $server_message = get_option('uaf_server_msg');
                             
                             <li>You can also assign uploaded font directly from Post/Page Wordpress Editor.</li>
                             
-                            <li>You are are fond of visual instructions, you can check it <a href="http://dineshkarki.com.np/use-any-font/instructions" target="_blank">here</a>.</li>
+                            <li>If you are fond of visual instructions, you can check it <a href="http://dineshkarki.com.np/use-any-font/instructions" target="_blank">here</a>.</li>
                             
                             <li>You are ready now. If you still have any problem visit our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">support forum</a> or you can write to us directly using our contact form.</li>
                             

@@ -33,7 +33,6 @@ function uaf_mce_before_init( $init_array ) {
 }
 
 function wp_editor_fontsize_filter( $options ) {
-	array_shift( $options );
 	array_unshift( $options, 'fontsizeselect');
 	array_unshift( $options, 'fontselect');
 	return $options;

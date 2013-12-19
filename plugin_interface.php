@@ -4,8 +4,12 @@ add_action("admin_print_scripts", 'adminjslibs');
 add_action("admin_print_styles", 'adminCsslibs');
 add_action('wp_enqueue_scripts', 'uaf_client_css');
 add_action('plugins_loaded', 'uaf_update_check');
-add_filter('mce_buttons_2', 'wp_editor_fontsize_filter');
-add_filter( 'tiny_mce_before_init', 'uaf_mce_before_init' );
+
+$uaf_disbale_editor_font_list_value = get_option('uaf_disbale_editor_font_list');
+if ($uaf_disbale_editor_font_list_value != 1):
+	add_filter('mce_buttons_2', 'wp_editor_fontsize_filter');
+	add_filter('tiny_mce_before_init', 'uaf_mce_before_init' );
+endif;
 
 function uaf_client_css() {
 	$uaf_upload 	= wp_upload_dir();
@@ -51,8 +55,8 @@ function uaf_activate(){
 
 function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
     $uaf_version_check = get_option('uaf_current_version');
-	if ($uaf_version_check != 4.0):
-		update_option('uaf_current_version', '4.0');
+	if ($uaf_version_check != 4.1):
+		update_option('uaf_current_version', '4.1');
 		if ($uaf_version_check < 4.0):
 			uaf_create_folder();
 			uaf_move_file_to_newPath();
@@ -115,7 +119,9 @@ function uaf_write_css(){
 	$uaf_upload_dir = $uaf_upload['basedir'];
 	$uaf_upload_dir = $uaf_upload_dir . '/useanyfont/';
 	$uaf_upload_url = $uaf_upload['baseurl'];
-	$uaf_upload_url = $uaf_upload_url . '/useanyfont/';
+	$uaf_upload_url = $uaf_upload_url . '/useanyfont/';	
+	$uaf_upload_url = preg_replace('#^https?:#', '', $uaf_upload_url);
+	
 	ob_start();
 		$fontsRawData 	= get_option('uaf_font_data');
 		$fontsData		= json_decode($fontsRawData, true);
@@ -124,8 +130,8 @@ function uaf_write_css(){
 			@font-face {
 				font-family: '<?php echo $fontData['font_name'] ?>';
 				font-style: normal;
-				src: url(<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot);
-				src: local('<?php echo $fontData['font_name'] ?>'), url(<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot) format('embedded-opentype'), url(<?php echo $uaf_upload_url.$fontData['font_path'] ?>.woff) format('woff');
+				src: url('<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot');
+				src: local('<?php echo $fontData['font_name'] ?>'), url('<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot') format('embedded-opentype'), url('<?php echo $uaf_upload_url.$fontData['font_path'] ?>.woff') format('woff');
 			}
 		<?php
 		endforeach;
@@ -156,8 +162,8 @@ function uaf_write_css(){
 			@font-face {
 				font-family: '<?php echo $fontData['font_name'] ?>';
 				font-style: normal;
-				src: url(<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot);
-				src: local('<?php echo $fontData['font_name'] ?>'), url(<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot) format('embedded-opentype'), url(<?php echo $uaf_upload_url.$fontData['font_path'] ?>.woff) format('woff');
+				src: url('<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot');
+				src: local('<?php echo $fontData['font_name'] ?>'), url('<?php echo $uaf_upload_url.$fontData['font_path'] ?>.eot') format('embedded-opentype'), url('<?php echo $uaf_upload_url.$fontData['font_path'] ?>.woff') format('woff');
 			}
 		<?php
 		endforeach;

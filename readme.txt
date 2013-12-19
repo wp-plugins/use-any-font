@@ -2,8 +2,8 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed, font uploader, css3 font embed, @font-face embed, font conversion, webfont, ttf, opentype, custom fonts
 Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 4.0
+Tested up to: 3.8
+Stable tag: 4.1
 
 Embed any font in your website
 
@@ -30,7 +30,7 @@ Features
 
 You need API key to connect to our server for font conversion. Our server converts your font and sends it back. 
 
-Offer your contribution (Free to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
+Offer your contribution (Free, $10 to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
 
 Note : We don't store your fonts in our server neither any of your information except the API key details. Our server deletes the temporary file after the conversion is done.
 
@@ -48,6 +48,14 @@ We don't respond to support tickets created here. Please visit our <a href="http
 1. Your fonts are working in your site now.
 
 == Frequently Asked Questions ==
+
+= Which font format does plugin accepts ? =
+
+Currently, ttf, otf, eot, woff, svg font format are accepted.
+
+= What is the max font file size ? =
+
+Font file upto 2MB is acceptable. However, we suggest you to use smaller ones as far as possible. The font file size directly affects your site load time. 
 
 = Does it works with multiple fonts ? =
 
@@ -74,7 +82,12 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 
 == Changelog ==
 
-= 4. =
+= 4.1 =
+* Added Support for SSL (https)
+* Additional settings to disbale font list in wordpress editor.
+* Tested with 3.8
+
+= 4.0 =
 * Added Network Site Support
 * Assign font directly from Wordpress Editor
 
@@ -86,7 +99,7 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 * Add woff and svg font format
 
 = 3.0 =
-*Major update
+* Major update
 * Supports more font format now.
 * Better error handling
 * Added hyperlink (a tag) in default element select.

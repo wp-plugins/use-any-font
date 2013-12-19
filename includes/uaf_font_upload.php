@@ -139,7 +139,7 @@ $fontsData		= json_decode($fontsRawData, true);
             <tr>    
                 <td>Font File</td>
                 <td><input type="file" name="font_file" value="" class="required" /><br/>
-                <em>Accepted Font Format : ttf, otf, eot, woff, svg</em>
+                <em>Accepted Font Format : ttf, otf, eot, woff, svg | Font Size: Less than 2MB</em>
                 </td>
             </tr>
             <tr>        
