@@ -2,8 +2,8 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed, font uploader, css3 font embed, @font-face embed, font conversion, webfont, ttf, opentype, custom fonts
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 4.1
+Tested up to: 3.8.1
+Stable tag: 4.1.1
 
 Embed any font in your website
 
@@ -12,7 +12,7 @@ Use any font you wish and give your site a elegant look. No css knowledge requir
 
 Click <a href="http://dineshkarki.com.np/use-any-font/demo" target="_blank">here</a> for Use Any Font working demo.
 
-Use Any Font gives you freedom to use any font in your website. It is not like other font embed services which gives you countable number of fonts to select from neither the one that stores your font in remote server. You can use any font if you have its font format (ttf,otf,eot,woff,svg) without being dependent to other's server uptime.
+Use Any Font gives you freedom to use any font in your website. It is not like other font embed services which gives you countable number of fonts to select from neither the one that stores your font in remote server. You can use any font if you have its font format (ttf,otf,eot,woff,svg,dfont,suit) without being dependent to other's server uptime.
 
 Features
 
@@ -20,7 +20,7 @@ Features
 * Support all major browsers including IE 6+, Firefox, Chrome, Safari, IOS, Andriod, Opera and more.
 * Font conversion within the plugin interface font uploader.
 * Use uploaded font directly from Editor
-* Supports font format including ttf, otf, eot, woff, svg (Upgrading more). The required font are converted automatically.
+* Supports font format including ttf, otf, eot, woff, svg, dfont, suit (Will continue adding more). The required fonts are converted automatically.
 * Embed fonts using @font-face css. SEO friendly and quick loading.
 * Multiple fonts can be used.
 * Faster load time as your custom fonts are stored on your own server.
@@ -46,12 +46,13 @@ We don't respond to support tickets created here. Please visit our <a href="http
 1. Assign your font to element.
 1. You can also assign the font directly from wordpress page/post editor.
 1. Your fonts are working in your site now.
+1. You may refer to Screenshots tab for visual instructions.
 
 == Frequently Asked Questions ==
 
 = Which font format does plugin accepts ? =
 
-Currently, ttf, otf, eot, woff, svg font format are accepted.
+Currently, ttf, otf, eot, woff, svg, dfont, suit font format are accepted.
 
 = What is the max font file size ? =
 
@@ -65,6 +66,14 @@ Ya, it works with multiple fonts. For multiple font conversion request, you need
 
 No, you don't need to do it yourself. Just upload your font(supports most of the font format), and the plugin does the rest.
 
+= Font uploaded from Use Any Font is not showing in wordpress editor ? =
+
+Please check screenshot #4 in Screenshots tab.
+
+= I want to disable font list from wordpress editor  ? =
+
+Please check screenshot #5 in Screenshots tab.
+
 = I moved my server path and the font is not working now. Why ? =
 
 The plugin is still searching font from your old path. You can delete your old uploaded font and re-upload and re-assign it.
@@ -76,11 +85,19 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 
 == Screenshots ==
 
-1. Use Any Font Demo
-1. Use Any Font Plugin Setup
-1. Assign font directly from Wordpress Editor
+1. Screenshot #1. Use Any Font Demo
+1. Screenshot #2. Use Any Font Plugin Setup
+1. Screenshot #3. Assign font directly from Wordpress Editor
+1. Screenshot #4. Font list not showing in editor.
+1. Screenshot #5. Disable font list in editor.
 
 == Changelog ==
+
+= 4.1.1 =
+* Minor update
+* Added font formats (dfont, suit)
+* Updated FAQ and Screenshots.
+* Tested with 3.8.1
 
 = 4.1 =
 * Added Support for SSL (https)
