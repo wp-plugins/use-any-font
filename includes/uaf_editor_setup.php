@@ -1,6 +1,5 @@
 <?php
 function uaf_mce_before_init( $init_array ) {
-	
 	$theme_advanced_fonts = '';
 	$fontsRawData 	= get_option('uaf_font_data');
 	$fontsData		= json_decode($fontsRawData, true);
@@ -10,25 +9,7 @@ function uaf_mce_before_init( $init_array ) {
 		endforeach;
 	endif;
 	
-	$theme_advanced_fonts .= 'Andale Mono=Andale Mono, Times;';
-	$theme_advanced_fonts .= 'Arial=Arial, Helvetica, sans-serif;';
-	$theme_advanced_fonts .= 'Arial Black=Arial Black, Avant Garde;';
-	$theme_advanced_fonts .= 'Book Antiqua=Book Antiqua, Palatino;';
-	$theme_advanced_fonts .= 'Comic Sans MS=Comic Sans MS, sans-serif;';
-	$theme_advanced_fonts .= 'Courier New=Courier New, Courier;';
-	$theme_advanced_fonts .= 'Georgia=Georgia, Palatino;';
-	$theme_advanced_fonts .= 'Helvetica=Helvetica;';
-	$theme_advanced_fonts .= 'Impact=Impact, Chicago;';
-	$theme_advanced_fonts .= 'Symbol=Symbol;';
-	$theme_advanced_fonts .= 'Tahoma=Tahoma, Arial, Helvetica, sans-serif;';
-	$theme_advanced_fonts .= 'Terminal=Terminal, Monaco;';
-	$theme_advanced_fonts .= 'Times New Roman=Times New Roman, Times;';
-	$theme_advanced_fonts .= 'Trebuchet MS=Trebuchet MS, Geneva;';
-	$theme_advanced_fonts .= 'Verdana=Verdana, Geneva;';
-	$theme_advanced_fonts .= 'Webdings=Webdings;';
-	$theme_advanced_fonts .= 'Wingdings=Wingdings, Zapf Dingbats;';
-	
-	$init_array['theme_advanced_fonts'] = $theme_advanced_fonts;
+	$init_array['font_formats'] = $theme_advanced_fonts.'Andale Mono=Andale Mono, Times;Arial=Arial, Helvetica, sans-serif;Arial Black=Arial Black, Avant Garde;Book Antiqua=Book Antiqua, Palatino;Comic Sans MS=Comic Sans MS, sans-serif;Courier New=Courier New, Courier;Georgia=Georgia, Palatino;Helvetica=Helvetica;Impact=Impact, Chicago;Symbol=Symbol;Tahoma=Tahoma, Arial, Helvetica, sans-serif;Terminal=Terminal, Monaco;Times New Roman=Times New Roman, Times;Trebuchet MS=Trebuchet MS, Geneva;Verdana=Verdana, Geneva;Webdings=Webdings;Wingdings=Wingdings';
 	return $init_array;
 }
 
