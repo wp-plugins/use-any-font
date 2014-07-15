@@ -1,14 +1,16 @@
 <?php 
 if (isset($_POST['ucf_api_key_submit'])){
-	$api_key_return = wp_remote_fopen('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$_POST['uaf_api_key']);
-	$api_key_return = json_decode($api_key_return);
-	if (!empty($api_key_return)){
+	$api_key_return = wp_remote_get('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$_POST['uaf_api_key']);
+	
+	if ( is_wp_error( $api_key_return ) ) {
+	   $error_message = $api_key_return->get_error_message();
+	   $api_message 	= "Something went wrong: $error_message";
+	} else {
+	    $api_key_return = json_decode($api_key_return['body']);
 		if ($api_key_return->status == 'success'){
 			update_option('uaf_api_key', $_POST['uaf_api_key']);
 		}
 		$api_message 	= $api_key_return->msg;
-	} else {
-		$api_message 	= 'Sorry there was an error. Please try again.';
 	}	
 }
 
@@ -16,8 +18,6 @@ if (isset($_POST['ucf_api_key_remove'])){
 	delete_option('uaf_api_key');
 	$api_message 	= 'Your Activation key has been removed';
 }
-
-
 
 $uaf_api_key			=	get_option('uaf_api_key');
 ?>

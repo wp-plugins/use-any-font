@@ -170,6 +170,22 @@ $uaf_disbale_editor_font_list_value = get_option('uaf_disbale_editor_font_list')
             <table class="wp-list-table widefat fixed bookmarks">
             	<thead>
                 <tr>
+                	<th>Recently Added Plugin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                	<td style="padding:4px;">
+                    	<a href="http://goo.gl/3XDDzi" target="_blank"><img width="240" alt="Create Masonry Brick Shortcode" src="<?php echo plugins_url("use-any-font/images/wp_masonry_layout.gif"); ?>" class="aligncenter size-full wp-image-426"></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+            
+            <table class="wp-list-table widefat fixed bookmarks">
+            	<thead>
+                <tr>
                 	<th>Plugins You May Like</th>
                 </tr>
                 </thead>
@@ -177,7 +193,8 @@ $uaf_disbale_editor_font_list_value = get_option('uaf_disbale_editor_font_list')
                 <tr>
                 	<td>
                     	<ul class="uaf_list">
-                        	<li><a href="http://wordpress.org/extend/plugins/any-mobile-theme-switcher/" target="_blank">Any Mobile Theme Switcher</a></li>
+                        	<li><a href="http://goo.gl/3XDDzi" target="_blank">WP Masonry Layout</a></li>
+                            <li><a href="http://wordpress.org/extend/plugins/any-mobile-theme-switcher/" target="_blank">Any Mobile Theme Switcher</a></li>
                             <li><a href="http://wordpress.org/extend/plugins/jquery-validation-for-contact-form-7/" target="_blank">Jquery Validation For Contact Form 7</a></li>
                             <li><a href="http://wordpress.org/extend/plugins/add-tags-and-category-to-page/" target="_blank">Add Tags And Category To Page</a></li>
                             <li><a href="http://wordpress.org/extend/plugins/block-specific-plugin-updates/" target="_blank">Block Specific Plugin Updates</a></li>
