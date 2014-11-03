@@ -55,8 +55,8 @@ function uaf_activate(){
 
 function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
     $uaf_version_check = get_option('uaf_current_version');
-	if ($uaf_version_check != '4.2.1'):
-		update_option('uaf_current_version', '4.2.1');
+	if ($uaf_version_check != '4.2.2'):
+		update_option('uaf_current_version', '4.2.2');
 		if ($uaf_version_check < 4.0):
 			uaf_create_folder();
 			uaf_move_file_to_newPath();

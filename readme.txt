@@ -2,8 +2,8 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed, font uploader, css3 font embed, @font-face embed, font conversion, webfont, ttf, opentype, custom fonts
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 4.2.1
+Tested up to: 4.0
+Stable tag: 4.2.2
 
 Embed any font in your website
 
@@ -78,6 +78,14 @@ Please check screenshot #5 in Screenshots tab.
 
 The plugin is still searching font from your old path. You can delete your old uploaded font and re-upload and re-assign it.
 
+= Where are my fonts stored ? =
+
+All the fonts are stored in your own server. Our server only convert the fonts and sends back. 
+
+= Does my font depends upon plugin's server uptime ? =
+
+No, our server is needed during font conversion only. After that all fonts are served from your own server. 
+
 = Not working for me. What can i do ? =
 
 You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">support forum</a>, or check <a href="http://dineshkarki.com.np/use-any-font/use-any-font-known-issues" target="_blank">known issues</a> or ask to <a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify Your Problem</a> 
@@ -92,6 +100,10 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 1. Screenshot #5. Disable font list in editor.
 
 == Changelog ==
+
+= 4.2.2 =
+* Tested to work with wordpress 4.0
+* Jquery Validation Plugin Updated
 
 = 4.2.1 =
 * Using wp_remote_get inplace of wp_remove_fopen for API Key
