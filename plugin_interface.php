@@ -21,7 +21,7 @@ function uaf_client_css() {
 
 function adminjslibs(){
 	wp_register_script('uaf_validate_js',plugins_url("use-any-font/js/jquery.validate.min.js"));		
-	wp_enqueue_script('uaf_validate_js');	
+	wp_enqueue_script('uaf_validate_js');
 }
 
 function adminCsslibs(){
@@ -55,8 +55,8 @@ function uaf_activate(){
 
 function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
     $uaf_version_check = get_option('uaf_current_version');
-	if ($uaf_version_check != '4.2.2'):
-		update_option('uaf_current_version', '4.2.2');
+	if ($uaf_version_check != '4.2.3'):
+		update_option('uaf_current_version', '4.2.3');
 		if ($uaf_version_check < 4.0):
 			uaf_create_folder();
 			uaf_move_file_to_newPath();
