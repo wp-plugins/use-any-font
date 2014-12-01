@@ -2,8 +2,8 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed, font uploader, css3 font embed, @font-face embed, font conversion, webfont, ttf, opentype, custom fonts
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 4.2.3
+Tested up to: 4.0.1
+Stable tag: 4.2.4
 
 Embed any font in your website
 
@@ -21,6 +21,7 @@ Features
 * Font conversion within the plugin interface font uploader.
 * Use uploaded font directly from Editor
 * Supports font format including ttf, otf. The required fonts are converted automatically.
+* Accepts font file upto 10 MB.
 * Embed fonts using @font-face css. SEO friendly and quick loading.
 * Multiple fonts can be used.
 * Faster load time as your custom fonts are stored on your own server.
@@ -30,7 +31,7 @@ Features
 
 You need API key to connect to our server for font conversion. Our server converts your font and sends it back. 
 
-Offer your contribution (From $10 to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
+Offer your contribution (Free, $10 to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
 
 Note : We don't store your fonts in our server neither any of your information except the API key details. Our server deletes the temporary file after the conversion is done.
 
@@ -56,7 +57,11 @@ Currently, ttf, otf font format are accepted.
 
 = What is the max font file size ? =
 
-Font file upto 2MB is acceptable. However, we suggest you to use smaller ones as far as possible. The font file size directly affects your site load time. 
+Font file upto 10MB is acceptable. However, we suggest you to use smaller ones as far as possible. The font file size directly affects your site load time. 
+
+= Mentioned 10 MB here but in font upload section it says less. Why ? =
+
+Ya, our plugin accept upto 10 MB font file but your wordpress installation have limitation for file size. Please check this link to increase it http://www.wpbeginner.com/wp-tutorials/how-to-increase-the-maximum-file-upload-size-in-wordpress/
 
 = Does it works with multiple fonts ? =
 
@@ -100,6 +105,11 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 1. Screenshot #5. Disable font list in editor.
 
 == Changelog ==
+
+= 4.2.4 =
+* Font size increase to 10 MB
+* Fixed js validation issue.
+* Add server side validation for font file.
 
 = 4.2.3 =
 * Removed rarely used font formats from being upload. They were making font onvertor server down repeatedly.

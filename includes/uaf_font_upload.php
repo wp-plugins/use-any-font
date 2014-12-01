@@ -1,11 +1,23 @@
 <?php
+$allowedFontFormats 	= array ('ttf','otf');
+$allowedFontSize		= 10; 
+$wpAllowedMaxSize 		= wp_max_upload_size(); 
+$wpAllowedMaxSizeToMB	= $wpAllowedMaxSize / 1048576 ;
+if ($wpAllowedMaxSizeToMB < $allowedFontSize){
+	$allowedFontSize = $wpAllowedMaxSizeToMB;
+}
+$allowedFontSizeinBytes	= $allowedFontSize * 1024 * 1024; // 10 MB to bytes
+
 if (isset($_POST['submit-uaf-font'])){	
 	$uaf_api_key		= get_option('uaf_api_key');
 	$font_file_name 	= $_FILES['font_file']['name'];
 	$font_file_details 	= pathinfo($_FILES['font_file']['name']);
 	$file_extension		= strtolower($font_file_details['extension']);	
+	$font_size			= $_FILES['font_file']['size'];
 	$fontUploadFinalMsg		= '';
 	$fontUploadFinalStatus 	= 'updated';
+	
+	if ((in_array($file_extension, $allowedFontFormats)) && ($font_size <= $allowedFontSizeinBytes)){
 	
 		$fontNameToStore 		= sanitize_file_name(date('ymdhis').$font_file_details['filename']);
 		$fontNameToStoreWithUrl = $fontNameToStore;
@@ -63,34 +75,36 @@ if (isset($_POST['submit-uaf-font'])){
 					$fontUploadFinalMsg 	 = $convertResponse;
 			endif;
 		}
-	
-	if (!empty($fontUploadMsg)):
-		foreach ($fontUploadMsg as $formatKey => $formatData):
-			if ($formatData['status'] == 'error'):
-				$fontUploadFinalStatus = 'error';
-				$fontUploadFinalMsg   .= $formatData['text'].'<br/>';
-			endif;
-		endforeach;
-	endif;
-	
-	if ($fontUploadFinalStatus != 'error'):
-		$fontUploadFinalMsg   = 'Font Uploaded';
-	endif;
-	
-	if ($fontUploadFinalStatus != 'error'):
-		$fontsRawData 	= get_option('uaf_font_data');
-		$fontsData		= json_decode($fontsRawData, true);
-		if (empty($fontsData)):
-			$fontsData = array();
+		
+		if (!empty($fontUploadMsg)):
+			foreach ($fontUploadMsg as $formatKey => $formatData):
+				if ($formatData['status'] == 'error'):
+					$fontUploadFinalStatus = 'error';
+					$fontUploadFinalMsg   .= $formatData['text'].'<br/>';
+				endif;
+			endforeach;
 		endif;
 		
-		$fontsData[date('ymdhis')]	= array('font_name' => $_POST['font_name'], 'font_path' => $fontNameToStoreWithUrl);
-		$updateFontData	= json_encode($fontsData);
-		update_option('uaf_font_data',$updateFontData);
-		uaf_write_css();	
-	endif;
-	
-	
+		if ($fontUploadFinalStatus != 'error'):
+			$fontUploadFinalMsg   = 'Font Uploaded';
+		endif;
+		
+		if ($fontUploadFinalStatus != 'error'):
+			$fontsRawData 	= get_option('uaf_font_data');
+			$fontsData		= json_decode($fontsRawData, true);
+			if (empty($fontsData)):
+				$fontsData = array();
+			endif;
+			
+			$fontsData[date('ymdhis')]	= array('font_name' => $_POST['font_name'], 'font_path' => $fontNameToStoreWithUrl);
+			$updateFontData	= json_encode($fontsData);
+			update_option('uaf_font_data',$updateFontData);
+			uaf_write_css();	
+		endif;
+	} else {
+		$fontUploadFinalStatus   = 'error';
+		$fontUploadFinalMsg 	 = 'Only '.join(", ",$allowedFontFormats).' format and font less than '.$allowedFontSize.' Mb accepted';
+	}
 }
 
 if (isset($_GET['delete_font_key'])):
@@ -139,7 +153,11 @@ $fontsData		= json_decode($fontsRawData, true);
             <tr>    
                 <td>Font File</td>
                 <td><input type="file" name="font_file" value="" class="required" /><br/>
-                <em>Accepted Font Format : ttf, otf | Font Size: Less than 2MB</em>
+                <?php 
+				
+				?>
+                <em>Accepted Font Format : <?php echo join(", ",$allowedFontFormats); ?> | Font Size: Upto <?php echo $allowedFontSize; ?>MB</em><br/>
+                
                 </td>
             </tr>
             <tr>        
