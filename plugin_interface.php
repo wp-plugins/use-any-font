@@ -1,4 +1,24 @@
 <?php
+// SETTINGS
+if (isset($_POST['submit-uaf-settings'])){
+	if (isset($_POST['uaf_disbale_editor_font_list'])){
+		$uaf_disbale_editor_font_list = 1;
+	} else {
+		$uaf_disbale_editor_font_list = '';
+	}
+	
+	if (isset($_POST['uaf_use_curl_uploader'])){
+		$uaf_use_curl_uploader = 1;
+	} else {
+		$uaf_use_curl_uploader = '';
+	}
+	
+	update_option('uaf_disbale_editor_font_list', $uaf_disbale_editor_font_list);
+	update_option('uaf_use_curl_uploader', $uaf_use_curl_uploader);
+	$settings_message = 'Settings Saved';
+}
+
+
 add_action('admin_menu', 'uaf_create_menu');
 add_action("admin_print_scripts", 'adminjslibs');
 add_action("admin_print_styles", 'adminCsslibs');
@@ -36,7 +56,7 @@ function adminCsslibs(){
 }
 		
 function uaf_create_menu() {
-	add_options_page('Use Any Font', 'Use Any Font', 'administrator', __FILE__, 'uaf_settings_page');	
+	add_menu_page( 'Use Any Font', 'Use Any Font', 'manage_options', 'uaf_settings_page', 'uaf_settings_page', 'dashicons-editor-textcolor');
 }
 
 function uaf_create_folder() {
@@ -55,8 +75,8 @@ function uaf_activate(){
 
 function uaf_update_check() { // MUST CHANGE WITH EVERY VERSION
     $uaf_version_check = get_option('uaf_current_version');
-	if ($uaf_version_check != '4.2.4'):
-		update_option('uaf_current_version', '4.2.4');
+	if ($uaf_version_check != '4.3'):
+		update_option('uaf_current_version', '4.3');
 		if ($uaf_version_check < 4.0):
 			uaf_create_folder();
 			uaf_move_file_to_newPath();
@@ -71,8 +91,16 @@ function uaf_settings_page() {
 	$uaf_upload_dir = $uaf_upload_dir . '/useanyfont/';
 	$uaf_upload_url = $uaf_upload['baseurl'];
 	$uaf_upload_url = $uaf_upload_url . '/useanyfont/';
+	
+	$uaf_disbale_editor_font_list_value = get_option('uaf_disbale_editor_font_list');
+	$uaf_use_curl_uploader_value = get_option('uaf_use_curl_uploader');
+	
 	include('includes/uaf_header.php');
-	include('includes/uaf_font_upload.php');
+	if ($uaf_use_curl_uploader_value == 1){
+		include('includes/uaf_font_upload_php.php');
+	} else {
+		include('includes/uaf_font_upload_js.php');	
+	}
 	include('includes/uaf_font_implement.php');
 	include('includes/uaf_footer.php');
 }

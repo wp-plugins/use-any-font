@@ -6,3 +6,6 @@ span.active_key{ padding-left:50px; font-weight:bold; color:#060;}
 #server_status.test_error{ background-color:#900; color:#fff; }
 .uaf_test_msg{ font-size:11px; padding-bottom:10px; color:#454545;}
 ul.uaf_list{ list-style-type:square;margin-left: 2em;}
+
+#font_upload_message.ok{ background:#060 url(../images/ajax-loader.gif) no-repeat 5px center; color:#fff; padding:5px 10px; border:none; margin:5px 0px;-webkit-border-radius: 3px;border-radius: 3px; padding-left:40px;}
+#font_upload_message.error{background:#900; color:#fff;padding:5px 10px; border:none;margin:5px 0px;-webkit-border-radius: 3px;border-radius: 3px;}

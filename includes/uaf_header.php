@@ -38,7 +38,7 @@ $uaf_api_key			=	get_option('uaf_api_key');
                 <tbody>
                 <tr>
                     <td>
-                    	<form action="options-general.php?page=use-any-font/plugin_interface.php" method="post" >
+                    	<form action="admin.php?page=uaf_settings_page" method="post" >
                         API KEY :
                     	<?php if (empty($uaf_api_key)): ?>
                         <input name="uaf_api_key" type="text" style="width:350px; margin-left:50px;" />

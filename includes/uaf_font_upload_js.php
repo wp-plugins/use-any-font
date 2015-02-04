@@ -1,48 +1,16 @@
 <?php
 $allowedFontFormats 	= array ('ttf','otf');
-$allowedFontSize		= 10; 
-$wpAllowedMaxSize 		= wp_max_upload_size(); 
-$wpAllowedMaxSizeToMB	= $wpAllowedMaxSize / 1048576 ;
-if ($wpAllowedMaxSizeToMB < $allowedFontSize){
-	$allowedFontSize = $wpAllowedMaxSizeToMB;
-}
-$allowedFontSizeinBytes	= $allowedFontSize * 1024 * 1024; // 10 MB to bytes
+$uaf_api_key			= get_option('uaf_api_key');
 
 if (isset($_POST['submit-uaf-font'])){	
-	$uaf_api_key		= get_option('uaf_api_key');
-	$font_file_name 	= $_FILES['font_file']['name'];
-	$font_file_details 	= pathinfo($_FILES['font_file']['name']);
-	$file_extension		= strtolower($font_file_details['extension']);	
-	$font_size			= $_FILES['font_file']['size'];
 	$fontUploadFinalMsg		= '';
 	$fontUploadFinalStatus 	= 'updated';
-	
-	if ((in_array($file_extension, $allowedFontFormats)) && ($font_size <= $allowedFontSizeinBytes)){
-	
-		$fontNameToStore 		= sanitize_file_name(date('ymdhis').$font_file_details['filename']);
-		$fontNameToStoreWithUrl = $fontNameToStore;
 		
-		// SEND FONT CONERSION REQUEST
-		set_time_limit(0);
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_URL, 'http://dnesscarkey.com/font-convertor/convertor/convert.php');
-		curl_setopt($ch, CURLOPT_POST, true);
-		$post = array(
-			'fontfile' 		=> "@".$_FILES['font_file']['tmp_name'],
-			'fontfileext' 	=> pathinfo($_FILES['font_file']['name'], PATHINFO_EXTENSION),
-			'api_key' 		=> $uaf_api_key
-		);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-		$convertResponse = curl_exec($ch);
-		if(curl_errno($ch)) {
-			echo 'Error: ' . curl_error($ch);
-			exit();
-		}
-		else {
-			$CrulStatinfo = curl_getinfo($ch);
-			if ($CrulStatinfo['http_code'] == '200'):
-				$convertResponseArray = json_decode($convertResponse, true);
+		if (!empty($_POST['font_name'])):
+			$fontNameToStore 		= sanitize_file_name(date('ymdhis').$_POST['font_name']);
+			$fontNameToStoreWithUrl = $fontNameToStore;
+			if (!empty($_POST['convert_response'])):
+				$convertResponseArray = json_decode(stripslashes($_POST['convert_response']), true);
 				if ($convertResponseArray['global']['status'] == 'ok'):
 					$neededFontFormats = array('woff','eot');
 					foreach ($neededFontFormats as $neededFontFormat):
@@ -72,9 +40,13 @@ if (isset($_POST['submit-uaf-font'])){
 				endif;
 			else:
 					$fontUploadFinalStatus   = 'error';
-					$fontUploadFinalMsg 	 = $convertResponse;
+					$fontUploadFinalMsg 	 = "Convert Response is Empty";
 			endif;
-		}
+		else:
+				$fontUploadFinalStatus   = 'error';
+				$fontUploadFinalMsg 	 = "Font Name is empty";
+		endif;
+			
 		
 		if (!empty($fontUploadMsg)):
 			foreach ($fontUploadMsg as $formatKey => $formatData):
@@ -101,10 +73,6 @@ if (isset($_POST['submit-uaf-font'])){
 			update_option('uaf_font_data',$updateFontData);
 			uaf_write_css();	
 		endif;
-	} else {
-		$fontUploadFinalStatus   = 'error';
-		$fontUploadFinalMsg 	 = 'Only '.join(", ",$allowedFontFormats).' format and font less than '.$allowedFontSize.' Mb accepted';
-	}
 }
 
 if (isset($_GET['delete_font_key'])):
@@ -144,7 +112,7 @@ $fontsData		= json_decode($fontsRawData, true);
 <p align="right"><input type="button" name="open_add_font" onClick="open_add_font();" class="button-primary" value="Add Fonts" /><br/></p>
 
 <div id="font-upload" style="display:none;">
-	<form action="options-general.php?page=use-any-font/plugin_interface.php" id="open_add_font_form" method="post" enctype="multipart/form-data">
+	<form action="admin.php?page=uaf_settings_page" id="open_add_font_form" method="post" enctype="multipart/form-data">
     	<table class="uaf_form">
         	<tr>
             	<td width="175">Font Name</td>
@@ -152,11 +120,11 @@ $fontsData		= json_decode($fontsRawData, true);
             </tr>	
             <tr>    
                 <td>Font File</td>
-                <td><input type="file" name="font_file" value="" class="required" /><br/>
+                <td><input type="file" id="fontfile" name="fontfile" value="" class="required" /><br/>
                 <?php 
 				
 				?>
-                <em>Accepted Font Format : <?php echo join(", ",$allowedFontFormats); ?> | Font Size: Upto <?php echo $allowedFontSize; ?>MB</em><br/>
+                <em>Accepted Font Format : <?php echo join(", ",$allowedFontFormats); ?> | Font Size: Upto 10 MB</em><br/>
                 
                 </td>
             </tr>
@@ -164,7 +132,11 @@ $fontsData		= json_decode($fontsRawData, true);
                 <td>&nbsp;
                 	
                 </td>
-                <td><input type="submit" name="submit-uaf-font" class="button-primary" value="Upload" />
+                <td>
+                <input type="hidden" name="api_key" value="<?php echo $uaf_api_key; ?>" />
+                <input type="hidden" name="convert_response" id="convert_response" value="" />
+                <input type="submit" name="submit-uaf-font" id="submit-uaf-font" class="button-primary" value="Upload" />
+                <div id="font_upload_message" class=""></div>
                 <p>By clicking on Upload, you confirm that you have rights to use this font.</p>
                 </td>
             </tr>
@@ -192,7 +164,7 @@ $fontsData		= json_decode($fontsRawData, true);
         <tr>
         	<td><?php echo $sn; ?></td>
             <td><?php echo $fontData['font_name'] ?></td>
-            <td><a onclick="if (!confirm('Are you sure ?')){return false;}" href="options-general.php?page=use-any-font/plugin_interface.php&delete_font_key=<?php echo $key; ?>">Delete</a></td>
+            <td><a onclick="if (!confirm('Are you sure ?')){return false;}" href="admin.php?page=uaf_settings_page&delete_font_key=<?php echo $key; ?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
         <?php else: ?>
@@ -214,4 +186,61 @@ $fontsData		= json_decode($fontsRawData, true);
 </td>
 </tr>
 </tbody>
-</table><br/>
+</table>
+<br/>
+<script>
+jQuery('#open_add_font_form')
+  .submit(function(e){    
+	var $formValid = jQuery(this);
+	if(! $formValid.valid()) return false;
+	
+	jQuery.ajax( {
+      url: 'http://dnesscarkey.com/font-convertor/convertor/convert_direct.php',
+      type: 'POST',
+      data: new FormData( this ),
+      processData: false,
+      contentType: false,
+	  async: false,
+	  beforeSend : function(){
+			 jQuery('#submit-uaf-font').attr('disabled',true);
+			 jQuery('#font_upload_message').attr('class','ok');
+			 jQuery('#font_upload_message').html('Uploading Font. It might take few mins based on your font file size.');
+		  },
+	  success: function(data, textStatus, jqXHR) 
+        {
+            var dataReturn = JSON.parse(data);
+			status = dataReturn.global.status;
+			msg	   = dataReturn.global.msg;
+			
+			if (status == 'error'){
+				jQuery('#font_upload_message').attr('class',status);
+				jQuery('#font_upload_message').html(msg);
+			} else {
+				woffStatus = dataReturn.woff.status;
+				eotStatus = dataReturn.eot.status;
+				if (woffStatus == 'ok' && eotStatus == 'ok'){
+					woffFilePath = dataReturn.woff.filename;
+					eotFilePath = dataReturn.eot.filename;
+					jQuery('#convert_response').val(data);
+					jQuery('#font_upload_message').attr('class','ok');
+					jQuery('#font_upload_message').html('Font Conversion Complete. Finalizing...');
+					jQuery('#submit-uaf-font').attr('disabled',false);
+					jQuery('#fontfile').remove();
+				} else {
+					jQuery('#font_upload_message').attr('class','error');
+					jQuery('#font_upload_message').html('Problem converting font to woff/eot.');
+					e.preventDefault();
+				}
+			}			
+        },
+	   error: function(jqXHR, textStatus, errorThrown) 
+        {
+            jQuery('#font_upload_message').attr('class','error');
+			jQuery('#font_upload_message').html('Unexpected Error Occured.');
+			jQuery('#submit-uaf-font').attr('disabled',false);
+			e.preventDefault();
+        }	
+    });
+   // e.preventDefault();
+  });
+</script>

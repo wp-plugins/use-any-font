@@ -62,7 +62,7 @@ $fontsData		= json_decode($fontsRawData, true);
 <p align="right"><input type="button" name="open_assign_font" onClick="open_assign_font();" class="button-primary" value="Assign Font" /><br/></p>
 
 <div id="open_assign_font" style="display:none;">
-	<form action="options-general.php?page=use-any-font/plugin_interface.php"  id="open_assign_font_form" method="post">
+	<form action="admin.php?page=uaf_settings_page"  id="open_assign_font_form" method="post">
     	<table class="uaf_form">
         	<tr>
             	<td width="175">Select Font</td>
@@ -142,7 +142,7 @@ $fontsImplementData		= json_decode($fontsImplementRawData, true);
         	<td><?php echo $sn; ?></td>
             <td><?php echo $fontsData[$fontImplementData['font_key']]['font_name']; ?></td>
             <td><?php echo $fontImplementData['font_elements'] ?></td>
-            <td><a onclick="if (!confirm('Are you sure ?')){return false;}" href="options-general.php?page=use-any-font/plugin_interface.php&delete_implement_key=<?php echo $key; ?>">Delete</a></td>
+            <td><a onclick="if (!confirm('Are you sure ?')){return false;}" href="admin.php?page=uaf_settings_page&delete_implement_key=<?php echo $key; ?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
         <?php else: ?>
