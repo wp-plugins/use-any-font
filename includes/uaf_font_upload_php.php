@@ -152,7 +152,7 @@ $fontsData		= json_decode($fontsRawData, true);
             </tr>	
             <tr>    
                 <td>Font File</td>
-                <td><input type="file" name="font_file" value="" class="required" /><br/>
+                <td><input type="file" name="font_file" id="font_file" value="" class="required" /><br/>
                 <?php 
 				
 				?>
@@ -208,6 +208,7 @@ $fontsData		= json_decode($fontsRawData, true);
 	function open_add_font(){
 		jQuery('#font-upload').toggle('fast');
 		jQuery("#open_add_font_form").validate();
+		jQuery( "#font_file" ).rules( "add", {extension: 'ttf|otf', messages: {extension : 'Only ttf,otf font format accepted.' }});
 	}	
 </script>
 <br/>

@@ -180,6 +180,7 @@ $fontsData		= json_decode($fontsRawData, true);
 	function open_add_font(){
 		jQuery('#font-upload').toggle('fast');
 		jQuery("#open_add_font_form").validate();
+		jQuery( "#fontfile" ).rules( "add", {extension: 'ttf|otf', messages: {extension : 'Only ttf,otf font format accepted.' }});
 	}	
 </script>
 <br/>
