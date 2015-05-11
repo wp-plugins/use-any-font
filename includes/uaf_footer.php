@@ -69,6 +69,12 @@ $server_message = get_option('uaf_server_msg');
                     </td>
                 </tr>
                 
+                <tr>
+                	<td>
+                    	<input type="checkbox" name="uaf_use_relative_font_path" value="1" <?php echo $uaf_use_relative_font_path == 1?'checked=checked':''; ?> /> Use relative path for font (Needed when you have domain mapping).
+                    </td>
+                </tr>
+                
                 <tr>        
                 	<td><input type="submit" name="submit-uaf-settings" class="button-primary" value="Save Settings" /></td>
             	</tr>
@@ -153,11 +159,11 @@ $server_message = get_option('uaf_server_msg');
                 <tr>
                 	<td>
                     <ul class="uaf_list">
-                    	<li><a href="http://dineshkarki.com.np/use-any-font/instructions" target="_blank">View Setup Instructions</a></li>
-                        <li><a href="http://dineshkarki.com.np/forums/forum/use-any-fonts" target="_blank">View Support Forum</a></li>
-                        <li><a href="http://dineshkarki.com.np/rectify-my-problem" target="_blank">Rectify My Problem</a></li>
-                        <li><a href="http://dineshkarki.com.np/use-any-font/use-any-font-known-issues" target="_blank">Check Known Issues</a></li>
-                        <li><a href="http://dineshkarki.com.np/contact" target="_blank">Contact Us</a></li>
+                    	<li><a href="http://goo.gl/NYtZsX" target="_blank">Setup Instructions</a></li>
+                        <li><a href="http://goo.gl/FcC7EL" target="_blank">Quick Virtual Support</a></li>
+                        <li><a href="http://goo.gl/XgEqzn" target="_blank">Support Forum</a></li>
+                        <li><a href="http://goo.gl/MKg7VS" target="_blank">Rectify My Problem</a></li>
+                        <li><a href="http://goo.gl/Id7yAo" target="_blank">Contact Us</a></li>
                     </ul>
                     </td>
                 </tr>

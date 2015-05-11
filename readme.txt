@@ -2,8 +2,8 @@
 Contributors: dnesscarkey
 Tags: use any font, any font, embed any font, font embed, font uploader, css3 font embed, @font-face embed, font conversion, webfont, ttf, opentype, custom fonts
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 4.3.1
+Tested up to: 4.2.2
+Stable tag: 4.3.2
 
 Embed any font in your website
 
@@ -31,7 +31,10 @@ Features
 
 You need API key to connect to our server for font conversion. Our server converts your font and sends it back. 
 
-Offer your contribution (Free, $10 to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
+Offer your contribution (Free for 1 font, $10 to $100) and get the API key from <a href="http://dnesscarkey.com/font-convertor/api/" target="_blank">here</a>.
+
+<strong>Installation Video</strong>
+[youtube http://www.youtube.com/watch?v=QzGaWIPVwEk]
 
 Note : We don't store your fonts in our server neither any of your information except the API key details. Our server deletes the temporary file after the conversion is done.
 
@@ -105,6 +108,10 @@ You can check our <a href="http://dineshkarki.com.np/forums/forum/use-any-fonts"
 1. Screenshot #5. Disable font list in editor.
 
 == Changelog ==
+
+= 4.3.2 =
+* Added relative font path settings. 
+* Added Css version system.
 
 = 4.3.1 =
 * Add js extension validation for font file.

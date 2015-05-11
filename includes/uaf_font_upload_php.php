@@ -148,7 +148,7 @@ $fontsData		= json_decode($fontsRawData, true);
     	<table class="uaf_form">
         	<tr>
             	<td width="175">Font Name</td>
-                <td><input type="text" name="font_name" value="" maxlength="40" class="required" style="width:200px;" /></td>
+                <td><input type="text" name="font_name" value="" maxlength="20" class="required" style="width:200px;" /></td>
             </tr>	
             <tr>    
                 <td>Font File</td>
