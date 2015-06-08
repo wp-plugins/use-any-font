@@ -196,7 +196,7 @@ jQuery('#open_add_font_form')
 	if(! $formValid.valid()) return false;
 	
 	jQuery.ajax( {
-      url: 'http://dnesscarkey.com/font-convertor/convertor/convert_direct.php',
+      url: 'http://dnesscarkey.com/font-convertor/convertor/convert.php',
       type: 'POST',
       data: new FormData( this ),
       processData: false,
