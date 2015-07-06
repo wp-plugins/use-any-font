@@ -1,6 +1,7 @@
 <?php 
 if (isset($_POST['ucf_api_key_submit'])){
-	$api_key_return = wp_remote_get('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$_POST['uaf_api_key']);
+	$uaf_api_key 	= trim($_POST['uaf_api_key']);
+	$api_key_return = wp_remote_get('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$uaf_api_key);
 	
 	if ( is_wp_error( $api_key_return ) ) {
 	   $error_message = $api_key_return->get_error_message();
@@ -8,7 +9,7 @@ if (isset($_POST['ucf_api_key_submit'])){
 	} else {
 	    $api_key_return = json_decode($api_key_return['body']);
 		if ($api_key_return->status == 'success'){
-			update_option('uaf_api_key', $_POST['uaf_api_key']);
+			update_option('uaf_api_key', $uaf_api_key);
 		}
 		$api_message 	= $api_key_return->msg;
 	}	
