@@ -1,6 +1,6 @@
 <?php
-$allowedFontFormats 	= array ('ttf','otf');
-$allowedFontSize		= 10; 
+$allowedFontFormats 	= array ('ttf','otf','woff');
+$allowedFontSize		= 15; 
 $wpAllowedMaxSize 		= wp_max_upload_size(); 
 $wpAllowedMaxSizeToMB	= $wpAllowedMaxSize / 1048576 ;
 if ($wpAllowedMaxSizeToMB < $allowedFontSize){

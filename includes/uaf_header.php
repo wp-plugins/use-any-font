@@ -1,7 +1,7 @@
 <?php 
 if (isset($_POST['ucf_api_key_submit'])){
 	$uaf_api_key 	= trim($_POST['uaf_api_key']);
-	$api_key_return = wp_remote_get('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$uaf_api_key);
+	$api_key_return = wp_remote_get('http://dnesscarkey.com/font-convertor/api/validate_key.php?license_key='.$uaf_api_key, array('timeout'=>300));
 	
 	if ( is_wp_error( $api_key_return ) ) {
 	   $error_message = $api_key_return->get_error_message();

@@ -1,5 +1,5 @@
 <?php
-$allowedFontFormats 	= array ('ttf','otf');
+$allowedFontFormats 	= array ('ttf','otf','woff');
 $uaf_api_key			= get_option('uaf_api_key');
 
 if (isset($_POST['submit-uaf-font'])){	
@@ -124,7 +124,7 @@ $fontsData		= json_decode($fontsRawData, true);
                 <?php 
 				
 				?>
-                <em>Accepted Font Format : <?php echo join(", ",$allowedFontFormats); ?> | Font Size: Upto 10 MB</em><br/>
+                <em>Accepted Font Format : <?php echo join(", ",$allowedFontFormats); ?> | Font Size: Upto 15 MB</em><br/>
                 
                 </td>
             </tr>
@@ -180,7 +180,7 @@ $fontsData		= json_decode($fontsRawData, true);
 	function open_add_font(){
 		jQuery('#font-upload').toggle('fast');
 		jQuery("#open_add_font_form").validate();
-		jQuery( "#fontfile" ).rules( "add", {extension: 'ttf|otf', messages: {extension : 'Only ttf,otf font format accepted.' }});
+		jQuery( "#fontfile" ).rules( "add", {extension: 'ttf|otf|woff', messages: {extension : 'Only ttf,otf,woff font format accepted.' }});
 	}	
 </script>
 <br/>
@@ -196,7 +196,7 @@ jQuery('#open_add_font_form')
 	if(! $formValid.valid()) return false;
 	
 	jQuery.ajax( {
-      url: 'http://dnesscarkey.com/font-convertor/convertor/convert.php',
+      url: 'https://nexus.websitewelcome.com/~dinesh/font-convertor/convertor/convert.php',
       type: 'POST',
       data: new FormData( this ),
       processData: false,
