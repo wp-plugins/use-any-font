@@ -68,7 +68,7 @@ if (isset($_POST['submit-uaf-font'])){
 				$fontsData = array();
 			endif;
 			
-			$fontsData[date('ymdhis')]	= array('font_name' => $_POST['font_name'], 'font_path' => $fontNameToStoreWithUrl);
+			$fontsData[date('ymdhis')]	= array('font_name' => sanitize_title($_POST['font_name']), 'font_path' => $fontNameToStoreWithUrl);
 			$updateFontData	= json_encode($fontsData);
 			update_option('uaf_font_data',$updateFontData);
 			uaf_write_css();	
@@ -196,7 +196,7 @@ jQuery('#open_add_font_form')
 	if(! $formValid.valid()) return false;
 	
 	jQuery.ajax( {
-      url: 'https://nexus.websitewelcome.com/~dinesh/font-convertor/convertor/convert.php',
+      url: 'https://dnesscarkey.com/font-convertor/convertor/convert.php',
       type: 'POST',
       data: new FormData( this ),
       processData: false,

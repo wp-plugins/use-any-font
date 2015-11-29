@@ -96,7 +96,7 @@ if (isset($_POST['submit-uaf-font'])){
 				$fontsData = array();
 			endif;
 			
-			$fontsData[date('ymdhis')]	= array('font_name' => $_POST['font_name'], 'font_path' => $fontNameToStoreWithUrl);
+			$fontsData[date('ymdhis')]	= array('font_name' => sanitize_title($_POST['font_name']), 'font_path' => $fontNameToStoreWithUrl);
 			$updateFontData	= json_encode($fontsData);
 			update_option('uaf_font_data',$updateFontData);
 			uaf_write_css();	
@@ -208,7 +208,7 @@ $fontsData		= json_decode($fontsRawData, true);
 	function open_add_font(){
 		jQuery('#font-upload').toggle('fast');
 		jQuery("#open_add_font_form").validate();
-		jQuery( "#font_file" ).rules( "add", {extension: 'ttf|otf', messages: {extension : 'Only ttf,otf font format accepted.' }});
+		jQuery( "#font_file" ).rules( "add", {extension: 'ttf|otf|woff', messages: {extension : 'Only ttf,otf font format accepted.' }});
 	}	
 </script>
 <br/>
